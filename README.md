@@ -13,7 +13,10 @@ Repeatdiagnostic value configures if the user is able to see live statistics of 
 
 Uselimiter value configures if the exploit should tone down the power to save on computing power at around 100k+ ms ping.
 
+
+
 Designed by Invicta
+
 EST 2022.
 
 Invicta is the most powerful organization in LSBG.
