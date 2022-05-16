@@ -75,8 +75,6 @@ end
 rconsoleprint("CrashSpeed loaded is: "..crashspeed.."\n")
 rconsoleprint("Sabers loaded are:\n")
 checksabers(LocalPlayer)
-wait(.5)
-chare.HumanoidRootPart.CFrame = CFrame.new(0,9*(10^8),0)
 wait(4)
 local orgtime = os.time()
 local used = false
@@ -85,7 +83,6 @@ local count = 0
 delta(function()
     e = 0
     chare = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-    chare.HumanoidRootPart.CFrame = CFrame.new(0,9*(10^8),0)
     workspace.CurrentCamera.CFrame = chare.HumanoidRootPart.CFrame
     if math.floor(game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValue()) > 150000 then
     amountofrepeat = 4
