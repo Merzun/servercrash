@@ -47,6 +47,10 @@ end;
 
 
 function checksabers(player,chare)
+    for i,v in pairs(sabers) do
+    v:Destroy()
+    end
+    sabers = nil
     chare = player.Character or player.CharacterAdded:Wait()
     chare.Humanoid:UnequipTools()
 sabers = player.Backpack:GetChildren()
@@ -64,8 +68,14 @@ end
 --- initialize
 
 local TeleportService = game:GetService("TeleportService")
+local CoreGui = game:GetService("StarterGui")
 local LocalPlayer = game.Players.LocalPlayer
 local chare = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+LocalPlayer.CharacterAdded:Connect(function()
+    wait(1)
+    checksabers(LocalPlayer)
+    wait(1)
+end)
 if chare.Humanoid.Health < 1 then
 repeat task.wait() until chare.Humanoid.Health > 1
 end
@@ -74,6 +84,11 @@ crashspeed = 200
 end
 rconsoleprint("CrashSpeed loaded is: "..crashspeed.."\n")
 rconsoleprint("Sabers loaded are:\n")
+CoreGui:SetCore("SendNotification", {
+	Title = "CrashServer";
+	Text = "CrashServer is loaded.";
+	Duration = 1;
+})
 checksabers(LocalPlayer)
 wait(4)
 local orgtime = os.time()
@@ -102,6 +117,11 @@ delta(function()
     count = count + 1
     until e == amountofrepeat
     if orgtime + 1 < os.time() and used == false and usediagnostic == true then
+CoreGui:SetCore("SendNotification", {
+	Title = "SOO/Speed of Operations";
+	Text = "SOO: "..(count);
+	Duration = 0.6;
+})
     rconsoleprint('SOO/Speed of Operations: '..(count).."\n")
     rconsoleprint('Ping of server is: '..math.floor(game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValue()).."ms\n")
     count = 0
