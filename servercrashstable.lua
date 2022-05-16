@@ -72,9 +72,9 @@ local CoreGui = game:GetService("StarterGui")
 local LocalPlayer = game.Players.LocalPlayer
 local chare = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
 LocalPlayer.CharacterAdded:Connect(function()
-    wait(1)
+    wait(2)
     checksabers(LocalPlayer)
-    wait(1)
+    wait(2)
 end)
 if chare.Humanoid.Health < 1 then
 repeat task.wait() until chare.Humanoid.Health > 1
@@ -120,7 +120,7 @@ delta(function()
 CoreGui:SetCore("SendNotification", {
 	Title = "SOO/Speed of Operations";
 	Text = "SOO: "..(count);
-	Duration = 0.6;
+	Duration = 0.5;
 })
     rconsoleprint('SOO/Speed of Operations: '..(count).."\n")
     rconsoleprint('Ping of server is: '..math.floor(game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValue()).."ms\n")
@@ -131,7 +131,7 @@ CoreGui:SetCore("SendNotification", {
    wai = wai - 1
   if wai <= 0 then
         if useanticrash == true then
-    wait(math.random(2.4,3))
+    wait(math.random(2.4,3.2))
     wai = 150
     end
     end
